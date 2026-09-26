@@ -345,3 +345,62 @@ Decomposition Difference =
 ```
 
 The decomposition difference was **0 for each analysed year**, confirming that the price, volume, and interaction effects reconciled with the total year-over-year change.
+
+## Key Findings
+
+### 1. Brent-price movements were the main driver of estimated oil-value changes
+
+Across the analysed period, changes in Brent prices generally had a larger financial impact than changes in physical oil production.
+
+Production changes still mattered because they either partially offset or amplified the price effect.
+
+### 2. 2022 was strongly price-driven
+
+Estimated gross oil value increased substantially in 2022.
+
+The decomposition showed that the positive price effect was much larger than the production effect.
+
+Although production declined, stronger Brent prices more than compensated for the lower production volume.
+
+### 3. Higher production did not prevent the 2023 value decline
+
+In 2023, overall oil production increased modestly, but estimated gross oil value declined.
+
+The positive production effect was not large enough to offset the negative Brent-price effect.
+
+This illustrates that higher production does not necessarily result in higher estimated value when market prices weaken.
+
+### 4. 2024 showed a weaker contribution from both drivers
+
+In 2024, both production and price effects were slightly negative.
+
+As a result, estimated gross oil value declined modestly compared with the previous year.
+
+### 5. Production helped cushion the 2025 decline
+
+In 2025, production made a positive contribution to estimated gross oil value.
+
+However, the negative Brent-price effect was substantially larger, leading to an overall decline in estimated value.
+
+### 6. Johan Sverdrup was important during the weaker-price environment
+
+The field-level analysis for 2023 showed that Johan Sverdrup combined:
+
+- strong production growth
+- positive estimated value growth
+- a much larger estimated gross value than most other high-growth fields
+
+This made Johan Sverdrup especially important in cushioning the effect of weaker Brent prices.
+
+### 7. Percentage growth alone can be misleading
+
+Some smaller fields recorded very high percentage increases in production.
+
+However, their overall financial contribution remained relatively small compared with larger producing fields.
+
+For this reason, the field-resilience analysis considered both:
+
+- percentage growth
+- estimated gross oil value
+
+This provides a more meaningful view of financial materiality.
