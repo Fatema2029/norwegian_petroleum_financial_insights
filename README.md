@@ -103,3 +103,13 @@ The Date Table supports consistent year-over-year and time-intelligence calculat
 ```DAX
 Total Oil Production (mill Sm3) =
 SUM(Production[Oil_mill_Sm3])
+Total Oil Barrels =
+[Total Oil Production (mill Sm3)] * 1000000 * 6.2898
+Brent Price =
+AVERAGE(Brent_price[Brent_USD_per_bbl])
+Estimated Gross Oil Value USD =
+SUMX(
+    VALUES(Date_Table[Date]),
+    CALCULATE([Total Oil Barrels]) *
+    CALCULATE([Brent Price])
+)
