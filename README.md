@@ -472,3 +472,21 @@ It does not account for:
 For this reason, the results should be interpreted as an estimate of gross market value rather than accounting revenue or profitability.
 
 The analysis also uses Brent crude as a common benchmark price for all fields, even though actual realised prices may differ across crude grades and commercial arrangements.
+
+## Skills Demonstrated
+
+This project demonstrates practical experience in:
+
+- Power BI
+- Power Query
+- DAX
+- Data Cleaning
+- Data Transformation
+- Data Modelling
+- Time-Intelligence Analysis
+- Financial Analysis
+- Price–Volume Decomposition
+- Data Visualisation
+- Dashboard Design
+- Data Storytelling
+- Energy-Sector Analytics
