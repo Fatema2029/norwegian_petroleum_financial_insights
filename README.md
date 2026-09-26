@@ -134,3 +134,83 @@ This measure estimates the market value of oil production by multiplying monthly
 
 It should not be interpreted as reported company revenue.
 
+## Year-over-Year Measures
+
+To evaluate how production, Brent prices, and estimated gross oil value changed over time, several year-over-year measures were created.
+
+### Estimated Gross Oil Value – Previous Year
+
+```DAX
+Estimated Gross Oil Value USD PY =
+CALCULATE(
+    [Estimated Gross Oil Value USD],
+    SAMEPERIODLASTYEAR(Date_Table[Date])
+)
+```
+
+### Oil Value YoY Change USD
+
+```DAX
+Oil Value YoY Change USD =
+VAR PY = [Estimated Gross Oil Value USD PY]
+RETURN
+IF(
+    ISBLANK(PY),
+    BLANK(),
+    [Estimated Gross Oil Value USD] - PY
+)
+```
+
+### Oil Value YoY Change %
+
+```DAX
+Oil Value YoY Change % =
+DIVIDE(
+    [Oil Value YoY Change USD],
+    [Estimated Gross Oil Value USD PY]
+)
+```
+
+### Oil Production – Previous Year
+
+```DAX
+Oil Production PY =
+CALCULATE(
+    [Total Oil Production (mill Sm3)],
+    SAMEPERIODLASTYEAR(Date_Table[Date])
+)
+```
+
+### Oil Production YoY %
+
+```DAX
+Oil Production YoY % =
+DIVIDE(
+    [Total Oil Production (mill Sm3)] - [Oil Production PY],
+    [Oil Production PY]
+)
+```
+
+### Brent Price – Previous Year
+
+```DAX
+Brent Price PY =
+CALCULATE(
+    [Brent Price],
+    SAMEPERIODLASTYEAR(Date_Table[Date])
+)
+```
+
+### Brent Price YoY %
+
+```DAX
+Brent Price YoY % =
+DIVIDE(
+    [Brent Price] - [Brent Price PY],
+    [Brent Price PY]
+)
+```
+
+These measures were used to compare changes in estimated oil value with changes in physical production and Brent crude prices.
+
+Because the analysis begins in 2021, year-over-year measures are blank for 2021 because 2020 data are not included in the model.
