@@ -1,73 +1,32 @@
-## Data Sources
+# Norwegian Petroleum Financial Insights
 
-The analysis uses public data from:
+A Power BI analysis of how Brent-price movements and production changes influenced the estimated gross value of Norwegian oil production from 2021–2025.
 
-- **Norwegian Offshore Directorate (SODIR)** – monthly field-level petroleum production data
-- **Norwegian Offshore Directorate (SODIR)** – field information and field identifiers
-- **U.S. Energy Information Administration (EIA)** – monthly Europe Brent Spot Price FOB
+## Research Question
 
-The analysis period covers **January 2021 to December 2025**.
+**When Norway's estimated oil value changes, how much is driven by Brent prices and how much by production?**
 
----
+## Dashboard Preview
 
-## Data Preparation
+### Norwegian Petroleum Financial Overview
 
-Data cleaning and transformation were completed in **Power Query**.
+![Financial Overview](Financial%20Overview.png)
 
-### Production Data
+### Field Resilience 2023
 
-The monthly production dataset was cleaned by:
+![Field Resilience 2023](Field%20Resilience%202023.png)
 
-- filtering the data to 2021–2025
-- keeping field-level oil production variables
-- creating a monthly date field
-- standardising field identifiers
-- assigning appropriate numeric and date data types
+## Project Objective
 
-### Brent Price Data
+The purpose of this project was to combine Norwegian oil-production data with monthly Brent crude prices and analyse how changes in production volumes and market prices influenced estimated gross oil value.
 
-The Brent dataset was cleaned by:
+The project also examines field-level resilience during periods of weaker Brent prices.
 
-- removing metadata rows
-- keeping the monthly date and Brent-price columns
-- converting Brent prices to decimal format
-- filtering the period to 2021–2025
+## Tools Used
 
-### Field Lookup Data
-
-The field lookup table was cleaned by:
-
-- retaining field name and field ID
-- removing blank field IDs
-- checking for duplicate field IDs
-- trimming text fields
-- removing unnecessary metadata columns
-
----
-
-## Data Model
-
-The Power BI model contains four main tables:
-
-- `Production`
-- `Brent_price`
-- `Field_Lookup`
-- `Date_Table`
-
-### Relationships
-
-- `Production[Date]` → `Date_Table[Date]`
-- `Brent_price[Date]` → `Date_Table[Date]`
-- `Production[Field_ID]` → `Field_Lookup[Field_ID]`
-
-The Date Table supports consistent year-over-year and time-intelligence calculations.
-
----
-
-## Key Measures
-
-### Total Oil Production
-
-```DAX
-Total Oil Production (mill Sm3) =
-SUM(Production[Oil_mill_Sm3])
+- Power BI
+- Power Query
+- DAX
+- Data Modelling
+- Financial Analysis
+- Data Visualisation
