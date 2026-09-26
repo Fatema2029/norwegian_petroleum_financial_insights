@@ -214,3 +214,134 @@ DIVIDE(
 These measures were used to compare changes in estimated oil value with changes in physical production and Brent crude prices.
 
 Because the analysis begins in 2021, year-over-year measures are blank for 2021 because 2020 data are not included in the model.
+
+## Price–Volume Decomposition
+
+To understand what caused year-over-year changes in estimated gross oil value, the total change was decomposed into three components:
+
+- **Volume Effect**
+- **Price Effect**
+- **Interaction Effect**
+
+The decomposition follows the identity:
+
+**Change in Oil Value = Volume Effect + Price Effect + Interaction Effect**
+
+### Volume Effect
+
+This measures the impact of changes in production volume while holding price at the previous-year level.
+
+Conceptually:
+
+**Volume Effect = Change in Volume × Previous-Year Price**
+
+```DAX
+Volume Effect USD =
+SUMX(
+    VALUES(Date_Table[Date]),
+    VAR CurrentVolume =
+        CALCULATE([Total Oil Barrels])
+    VAR PreviousVolume =
+        CALCULATE(
+            [Total Oil Barrels],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    VAR PreviousPrice =
+        CALCULATE(
+            [Brent Price],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    RETURN
+        IF(
+            ISBLANK(PreviousVolume) || ISBLANK(PreviousPrice),
+            BLANK(),
+            (CurrentVolume - PreviousVolume) * PreviousPrice
+        )
+)
+```
+
+### Price Effect
+
+This measures the impact of Brent-price changes while holding production at the previous-year level.
+
+Conceptually:
+
+**Price Effect = Previous-Year Volume × Change in Price**
+
+```DAX
+Price Effect USD =
+SUMX(
+    VALUES(Date_Table[Date]),
+    VAR PreviousVolume =
+        CALCULATE(
+            [Total Oil Barrels],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    VAR CurrentPrice =
+        CALCULATE([Brent Price])
+    VAR PreviousPrice =
+        CALCULATE(
+            [Brent Price],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    RETURN
+        IF(
+            ISBLANK(PreviousVolume) || ISBLANK(PreviousPrice),
+            BLANK(),
+            PreviousVolume * (CurrentPrice - PreviousPrice)
+        )
+)
+```
+
+### Interaction Effect
+
+This captures the additional effect created when both production volume and Brent price change simultaneously.
+
+Conceptually:
+
+**Interaction Effect = Change in Volume × Change in Price**
+
+```DAX
+Interaction Effect USD =
+SUMX(
+    VALUES(Date_Table[Date]),
+    VAR CurrentVolume =
+        CALCULATE([Total Oil Barrels])
+    VAR PreviousVolume =
+        CALCULATE(
+            [Total Oil Barrels],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    VAR CurrentPrice =
+        CALCULATE([Brent Price])
+    VAR PreviousPrice =
+        CALCULATE(
+            [Brent Price],
+            SAMEPERIODLASTYEAR(Date_Table[Date])
+        )
+    RETURN
+        IF(
+            ISBLANK(PreviousVolume) || ISBLANK(PreviousPrice),
+            BLANK(),
+            (CurrentVolume - PreviousVolume) *
+            (CurrentPrice - PreviousPrice)
+        )
+)
+```
+
+### Decomposition Validation
+
+A reconciliation measure was used to verify that the three effects fully explain the year-over-year change in estimated gross oil value.
+
+```DAX
+Decomposition Difference =
+[Oil Value YoY Change USD]
+-
+(
+    [Volume Effect USD]
+    + [Price Effect USD]
+    + [Interaction Effect USD]
+)
+```
+
+The decomposition difference was **0 for each analysed year**, confirming that the price, volume, and interaction effects reconciled with the total year-over-year change.
