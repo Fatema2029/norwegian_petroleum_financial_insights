@@ -446,3 +446,29 @@ The chart helps identify which fields:
 The accompanying field-level table provides detailed performance values for individual fields.
 
 This page highlights how large producers such as Johan Sverdrup could materially cushion weaker price conditions through stronger production growth.
+
+## Limitations
+
+The estimated gross oil-value measure used in this project is a simplified market-value estimate.
+
+It is calculated using:
+
+**Oil Production × Brent Price**
+
+The measure does not represent reported company revenue or profit.
+
+It does not account for:
+
+- company ownership shares
+- realised selling prices
+- crude-quality differences
+- hedging
+- transportation costs
+- operating expenses
+- taxes
+- royalties
+- other commercial adjustments
+
+For this reason, the results should be interpreted as an estimate of gross market value rather than accounting revenue or profitability.
+
+The analysis also uses Brent crude as a common benchmark price for all fields, even though actual realised prices may differ across crude grades and commercial arrangements.
