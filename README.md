@@ -490,3 +490,20 @@ This project demonstrates practical experience in:
 - Dashboard Design
 - Data Storytelling
 - Energy-Sector Analytics
+
+## Interactive Dashboard
+
+An interactive version of this Power BI report will be available here:
+
+**[View Interactive Dashboard](YOUR-POWER-BI-LINK)**
+
+The interactive report will allow users to:
+
+- select different years
+- explore changes in estimated gross oil value
+- compare price and production effects
+- inspect top-producing fields
+- explore field-level resilience
+- navigate between dashboard pages
+
+> Note: The interactive link will be added after the report is published through Power BI Service.
