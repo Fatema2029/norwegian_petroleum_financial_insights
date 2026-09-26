@@ -507,3 +507,21 @@ The interactive report will allow users to:
 - navigate between dashboard pages
 
 > Note: The interactive link will be added after the report is published through Power BI Service.
+
+## Data Sources and References
+
+The analysis was built using publicly available data from the following sources:
+
+- **Norwegian Offshore Directorate (SODIR)**  
+  Monthly field-level petroleum production data and field information.
+
+- **U.S. Energy Information Administration (EIA)**  
+  Monthly Europe Brent Spot Price FOB data.
+
+### Source Links
+
+- Norwegian Offshore Directorate FactPages:  
+  https://factpages.sodir.no/
+
+- U.S. Energy Information Administration – Brent Spot Price:  
+  https://www.eia.gov/dnav/pet/hist/RBRTEd.htm
