@@ -404,3 +404,45 @@ For this reason, the field-resilience analysis considered both:
 - estimated gross oil value
 
 This provides a more meaningful view of financial materiality.
+
+## Dashboard Pages
+
+### 1. Norwegian Petroleum Financial Overview
+
+This page provides the overall financial and operational view of Norwegian oil production from 2021 to 2025.
+
+It includes:
+
+- Total Oil Production
+- Total Oil Barrels
+- Average Brent Price
+- Estimated Gross Oil Value
+- Oil Value YoY Change %
+- Oil Production YoY %
+- Brent Price YoY %
+- Price vs. Production Contribution waterfall
+- Decomposition Matrix
+- Top fields by estimated gross oil value
+
+The purpose of this page is to show how market-price movements and production changes influenced estimated gross oil value over time.
+
+### 2. Field Resilience 2023
+
+This page focuses on field-level performance during the weaker Brent-price environment in 2023.
+
+The scatter plot compares:
+
+- **Oil Production YoY %** on the X-axis
+- **Field Oil Value YoY %** on the Y-axis
+- **Estimated Gross Oil Value** as bubble size
+
+The chart helps identify which fields:
+
+- increased production and value
+- increased production but still lost value
+- experienced declines in both production and value
+- remained financially important despite weaker prices
+
+The accompanying field-level table provides detailed performance values for individual fields.
+
+This page highlights how large producers such as Johan Sverdrup could materially cushion weaker price conditions through stronger production growth.
